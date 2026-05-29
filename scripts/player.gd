@@ -77,7 +77,10 @@ func shoot():
 	var result = space_state.intersect_ray(query)
 
 	if result:
-		result.collider.get_parent().queue_free()
+		var target = result.collider.get_parent()
+
+		if target.has_method("take_damage"):
+			target.take_damage(1)
 
 	await get_tree().create_timer(0.05).timeout
 
