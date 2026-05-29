@@ -4,19 +4,46 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rxg2q"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
+albedo_color = Color(0.56123674, 0.77413183, 0.77585894, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_uu6xs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu6xs"]
+albedo_color = Color(1, 0.9843137, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_rxg2q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0du0"]
+albedo_color = Color(0.022970352, 0.31670156, 0.50957817, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_glv2v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0du0"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm0pq"]
+albedo_color = Color(0.023529412, 0.31764707, 0.50980395, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fos0i"]
+albedo_color = Color(0.023529412, 0.31764707, 0.50980395, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dxm6"]
+albedo_color = Color(0.023529412, 0.31764707, 0.50980395, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgr22"]
+albedo_color = Color(0.90778506, 0.08963292, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_r0du0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cm0pq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trn2v"]
+albedo_color = Color(0.90588236, 0.09019608, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03owx"]
+albedo_color = Color(0.90588236, 0.09019608, 0, 1)
 
 [node name="Main" type="Node3D" unique_id=786019353]
 
@@ -34,12 +61,14 @@ transform = Transform3D(-1, 8.742278e-08, 0, 8.742278e-08, 1, 8.742278e-08, 7.64
 
 [node name="Weapon" type="MeshInstance3D" parent="Player/PlayerCamera" unique_id=391577962]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.6, 0.3, -0.3, -0.7)
+material_override = SubResource("StandardMaterial3D_glv2v")
 mesh = SubResource("BoxMesh_uu6xs")
 
 [node name="Map" type="Node3D" parent="." unique_id=1395804969]
 
 [node name="Floor" type="MeshInstance3D" parent="Map" unique_id=1328210240]
 transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_uu6xs")
 mesh = SubResource("BoxMesh_rxg2q")
 
 [node name="FloorStaticBody3D" type="StaticBody3D" parent="Map/Floor" unique_id=2033986614]
@@ -51,6 +80,7 @@ shape = SubResource("BoxShape3D_uu6xs")
 
 [node name="WallBack" type="MeshInstance3D" parent="Map/Walls" unique_id=1965166876]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 1, -5)
+material_override = SubResource("StandardMaterial3D_r0du0")
 mesh = SubResource("BoxMesh_glv2v")
 
 [node name="WallBackStaticBody3D" type="StaticBody3D" parent="Map/Walls/WallBack" unique_id=624425122]
@@ -60,6 +90,7 @@ shape = SubResource("BoxShape3D_r0du0")
 
 [node name="WallLeft" type="MeshInstance3D" parent="Map/Walls" unique_id=659874796]
 transform = Transform3D(-4.371139e-07, 0, 0.2, 0, 2, 0, -10, 0, -8.742278e-09, 5, 1, 0)
+material_override = SubResource("StandardMaterial3D_cm0pq")
 mesh = SubResource("BoxMesh_glv2v")
 
 [node name="WallLeftStaticBody3D" type="StaticBody3D" parent="Map/Walls/WallLeft" unique_id=2084811287]
@@ -69,6 +100,7 @@ shape = SubResource("BoxShape3D_r0du0")
 
 [node name="WallRight" type="MeshInstance3D" parent="Map/Walls" unique_id=1549739230]
 transform = Transform3D(-4.371139e-07, 0, 0.2, 0, 2, 0, -10, 0, -8.742278e-09, -5, 1, 0)
+material_override = SubResource("StandardMaterial3D_fos0i")
 mesh = SubResource("BoxMesh_glv2v")
 
 [node name="WallRightStaticBody3D" type="StaticBody3D" parent="Map/Walls/WallRight" unique_id=53182529]
@@ -78,6 +110,7 @@ shape = SubResource("BoxShape3D_r0du0")
 
 [node name="WallFront" type="MeshInstance3D" parent="Map/Walls" unique_id=438066829]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 0.2, 0, 1, 5)
+material_override = SubResource("StandardMaterial3D_3dxm6")
 mesh = SubResource("BoxMesh_glv2v")
 
 [node name="WallFrontStaticBody3D" type="StaticBody3D" parent="Map/Walls/WallFront" unique_id=1510326255]
@@ -85,31 +118,36 @@ mesh = SubResource("BoxMesh_glv2v")
 [node name="WallFrontCollisionShape3D" type="CollisionShape3D" parent="Map/Walls/WallFront/WallFrontStaticBody3D" unique_id=1803212706]
 shape = SubResource("BoxShape3D_r0du0")
 
-[node name="DummyTarget" type="MeshInstance3D" parent="Map" unique_id=1767061428]
-transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 1, -3)
-mesh = SubResource("BoxMesh_r0du0")
+[node name="Dummies" type="Node3D" parent="Map" unique_id=1347310959]
 
-[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/DummyTarget" unique_id=279559659]
-
-[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/DummyTarget/DummyTargetStaticBody3D" unique_id=2136842074]
-shape = SubResource("BoxShape3D_cm0pq")
-
-[node name="DummyTarget3" type="MeshInstance3D" parent="Map" unique_id=871511694]
+[node name="DummyTarget3" type="MeshInstance3D" parent="Map/Dummies" unique_id=871511694]
 transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 2.9403148, 1, 0.3811698)
+material_override = SubResource("StandardMaterial3D_lgr22")
 mesh = SubResource("BoxMesh_r0du0")
 
-[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/DummyTarget3" unique_id=1836730337]
+[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/Dummies/DummyTarget3" unique_id=1836730337]
 
-[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/DummyTarget3/DummyTargetStaticBody3D" unique_id=1132066427]
+[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/Dummies/DummyTarget3/DummyTargetStaticBody3D" unique_id=1132066427]
 shape = SubResource("BoxShape3D_cm0pq")
 
-[node name="DummyTarget2" type="MeshInstance3D" parent="Map" unique_id=232741707]
+[node name="DummyTarget2" type="MeshInstance3D" parent="Map/Dummies" unique_id=232741707]
 transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 1, 2.7220588)
+material_override = SubResource("StandardMaterial3D_trn2v")
 mesh = SubResource("BoxMesh_r0du0")
 
-[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/DummyTarget2" unique_id=358337506]
+[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/Dummies/DummyTarget2" unique_id=358337506]
 
-[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/DummyTarget2/DummyTargetStaticBody3D" unique_id=2091458151]
+[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/Dummies/DummyTarget2/DummyTargetStaticBody3D" unique_id=2091458151]
+shape = SubResource("BoxShape3D_cm0pq")
+
+[node name="DummyTarget1" type="MeshInstance3D" parent="Map/Dummies" unique_id=1767061428]
+transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 0.5, 0, 1, -3)
+material_override = SubResource("StandardMaterial3D_03owx")
+mesh = SubResource("BoxMesh_r0du0")
+
+[node name="DummyTargetStaticBody3D" type="StaticBody3D" parent="Map/Dummies/DummyTarget1" unique_id=279559659]
+
+[node name="DummyTargetCollisionShape3D" type="CollisionShape3D" parent="Map/Dummies/DummyTarget1/DummyTargetStaticBody3D" unique_id=2136842074]
 shape = SubResource("BoxShape3D_cm0pq")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=938957265]
