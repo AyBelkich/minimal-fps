@@ -63,17 +63,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func shoot():
+	var weapon = $PlayerCamera/Weapon
+	var original_position = weapon.position
 
-	$PlayerCamera/Weapon.position.z += 0.1
+	weapon.position.z += 0.1
+	await get_tree().create_timer(0.05).timeout
+	weapon.position = original_position
 
 	var space_state = get_world_3d().direct_space_state
 
-	var start = camera.global_position
+	var viewport_center = get_viewport().get_visible_rect().size / 2
 
-	var end = start + (-camera.global_transform.basis.z * 100)
+	var start = camera.project_ray_origin(viewport_center)
+	var direction = camera.project_ray_normal(viewport_center)
+	var end = start + direction * 100
 
 	var query = PhysicsRayQueryParameters3D.create(start, end)
-
 	var result = space_state.intersect_ray(query)
 
 	if result:
@@ -86,7 +91,3 @@ func shoot():
 			target.take_damage(1)
 		else:
 			print("Parent has no take_damage method")
-
-	await get_tree().create_timer(0.05).timeout
-
-	$PlayerCamera/Weapon.position.z -= 0.1
