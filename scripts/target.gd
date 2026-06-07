@@ -7,7 +7,7 @@ var health := 4
 func _ready():
 	mesh.material_override = StandardMaterial3D.new()
 	mesh.material_override.albedo_color = Color.GREEN
-	
+
 func take_damage(amount: int):
 	health -= amount
 	print("Health:", health)

@@ -36,6 +36,7 @@ albedo_color = Color(0.023529412, 0.31764707, 0.50980395, 1)
 
 [node name="Main" type="Node3D" unique_id=786019353]
 script = ExtResource("1_r0du0")
+target_scene = ExtResource("2_uu6xs")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1360248783]
 
@@ -152,14 +153,16 @@ text = "YOU WIN"
 
 [node name="Targets" type="Node3D" parent="." unique_id=831532013]
 
-[node name="Target" parent="Targets" unique_id=872323387 instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4995666, 1.5999999, -4.0615206)
+[node name="SpawnPoints" type="Node3D" parent="Targets" unique_id=724437657]
 
-[node name="Target2" parent="Targets" unique_id=1702435544 instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4711823, 1.5999999, 3.7763824)
+[node name="Spawn1" type="Node3D" parent="Targets/SpawnPoints" unique_id=1667762829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3)
 
-[node name="Target3" parent="Targets" unique_id=1403431301 instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9514043, 1.6000001, -3.394808)
+[node name="Spawn2" type="Node3D" parent="Targets/SpawnPoints" unique_id=710973150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -3)
 
-[node name="Target4" parent="Targets" unique_id=1759625616 instance=ExtResource("2_uu6xs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4742243, 1.5999999, 3.25274)
+[node name="Spawn3" type="Node3D" parent="Targets/SpawnPoints" unique_id=1739236343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -3)
+
+[node name="Spawn4" type="Node3D" parent="Targets/SpawnPoints" unique_id=1617688852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
