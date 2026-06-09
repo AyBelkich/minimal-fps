@@ -16,4 +16,5 @@ mesh = SubResource("BoxMesh_6f2ye")
 [node name="StaticBody3D" type="StaticBody3D" parent="DummyTarget" unique_id=2084504108]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DummyTarget/StaticBody3D" unique_id=356784695]
+visible = false
 shape = SubResource("BoxShape3D_0mptp")

@@ -25,6 +25,6 @@ func take_damage(amount: int):
 		mesh.material_override.albedo_color = Color.RED
 
 	if health <= 0:
-		target_died.emit()
+		target_died.emit(id)
 		get_tree().current_scene.add_score(1)
 		queue_free()

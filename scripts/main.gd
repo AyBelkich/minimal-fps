@@ -39,5 +39,23 @@ func spawn_targets():
 
 		$Targets.add_child(target)
 
-func on_target_died():
-	print("target %s died" % target_id)
+func respawn_target():
+
+	await get_tree().create_timer(2.0).timeout
+
+	var spawn_points = $Targets/SpawnPoints.get_children()
+
+	var random_spawn = spawn_points.pick_random()
+
+	var target = target_scene.instantiate()
+
+	target.position = random_spawn.position
+
+	target.target_died.connect(on_target_died)
+
+	$Targets.add_child(target)
+
+
+func on_target_died(dead_target_id: int):
+	print("target %s died" % dead_target_id)
+	respawn_target()
