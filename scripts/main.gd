@@ -47,8 +47,8 @@ func respawn_target():
 	var empty_spawn_points = []
 	
 	for spawn_point in spawn_points:
-			if spawn_point.get_child_count() == 0:
-				empty_spawn_points.append(spawn_point)
+		if spawn_point.get_child_count() == 0:
+			empty_spawn_points.append(spawn_point)
 
 	if empty_spawn_points.is_empty():
 		print("There are no empty spawn points!")
