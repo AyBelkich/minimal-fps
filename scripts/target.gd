@@ -1,6 +1,6 @@
 extends Node3D
 
-signal target_died
+signal target_died(dead_target_id: int)
 
 var id = 0
 var health := 4
